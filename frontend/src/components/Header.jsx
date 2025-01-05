@@ -142,7 +142,7 @@ const Header = () => {
 
             {/* GitHub */}
             <motion.a
-              href="https://github.com/IgesAI"
+              href="https://github.com/IgesAI/IgesAI"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
