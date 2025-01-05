@@ -18,6 +18,23 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const scrollToWaitlist = () => {
+    const waitlistSection = document.getElementById('waitlist-section');
+    if (waitlistSection) {
+      const headerOffset = 80;
+      const elementPosition = waitlistSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    } else {
+      console.log('Waitlist section not found!');
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
@@ -155,6 +172,16 @@ const Header = () => {
                 layoutId="nav-hover-roadmap"
               />
             </Link>
+            
+            {/* Add Request Demo button */}
+            <motion.button
+              onClick={scrollToWaitlist}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="ml-4 px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-blue-500/25"
+            >
+              Request Demo
+            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}

@@ -10,14 +10,12 @@ import EmailCaptureForm from './components/EmailCaptureForm';
 import ParticleBackground from './components/ParticleBackground';
 import StatsBanner from './components/StatsBanner';
 import FeatureShowcase from './components/FeatureShowcase';
-import LiveDemo from './components/LiveDemo';
 
 const LandingPage = () => (
   <main className="relative">
     <Hero />
     <StatsBanner />
     <FeatureShowcase />
-    <LiveDemo />
     <EmailCaptureForm />
   </main>
 );
