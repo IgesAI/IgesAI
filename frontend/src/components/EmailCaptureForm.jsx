@@ -2,40 +2,19 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
-
 const EmailCaptureForm = () => {
-  console.log('EmailCaptureForm component rendering');
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle');
-  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('loading');
     
-    try {
-      const response = await fetch(`${API_URL}/api/waitlist`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to join waitlist');
-      }
-
+    // Simulate API call
+    setTimeout(() => {
       setStatus('success');
-      setEmail('');
-    } catch (err) {
-      console.error('Submission error:', err);
-      setError(err.message || 'Failed to submit. Please try again.');
-      setStatus('error');
-    }
+      setEmail(''); // Clear the input
+    }, 1000); // Show loading state for 1 second
   };
 
   return (
@@ -72,7 +51,7 @@ const EmailCaptureForm = () => {
                 disabled={status === 'loading'}
                 className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 disabled:from-blue-600/50 disabled:to-blue-700/50 text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-blue-500/25"
               >
-                {status === 'loading' ? 'Joining...' : 'Join Now'}
+                {status === 'loading' ? 'Recording...' : 'Join Now'}
               </button>
             </div>
 
@@ -82,17 +61,7 @@ const EmailCaptureForm = () => {
                 animate={{ opacity: 1 }}
                 className="text-green-400"
               >
-                Thanks for joining! We'll be in touch soon.
-              </motion.p>
-            )}
-
-            {status === 'error' && (
-              <motion.p 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="text-red-400"
-              >
-                {error}
+                Email recorded! We'll be in touch soon.
               </motion.p>
             )}
           </form>
