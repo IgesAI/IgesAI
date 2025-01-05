@@ -38,7 +38,15 @@ const Header = () => {
 
     if (location.pathname !== '/') {
       navigate('/');
-      setTimeout(goToWaitlist, 100);
+      setTimeout(() => {
+        const checkForElement = setInterval(() => {
+          if (document.getElementById('waitlist-section')) {
+            clearInterval(checkForElement);
+            goToWaitlist();
+          }
+        }, 100);
+        setTimeout(() => clearInterval(checkForElement), 3000);
+      }, 300);
     } else {
       goToWaitlist();
     }
