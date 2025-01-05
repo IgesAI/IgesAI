@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const scrollToSignup = () => {
     const signupSection = document.getElementById('signup-section');
@@ -19,20 +21,27 @@ const Header = () => {
   };
 
   const scrollToWaitlist = () => {
-    const waitlistSection = document.getElementById('waitlist-section');
-    if (waitlistSection) {
-      const headerOffset = 80;
-      const elementPosition = waitlistSection.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    const goToWaitlist = () => {
+      const waitlistSection = document.getElementById('waitlist-section');
+      if (waitlistSection) {
+        const headerOffset = 80;
+        const elementPosition = waitlistSection.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+      setIsMobileMenuOpen(false);
+    };
+
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(goToWaitlist, 100);
     } else {
-      console.log('Waitlist section not found!');
+      goToWaitlist();
     }
-    setIsMobileMenuOpen(false);
   };
 
   useEffect(() => {
