@@ -6,6 +6,13 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    sourcemap: true,
+    minify: 'terser',
+    target: 'esnext'
   },
-  base: '/'
+  base: '/',
+  server: {
+    port: 3000,
+    strictPort: true
+  }
 })
