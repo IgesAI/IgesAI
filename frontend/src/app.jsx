@@ -9,13 +9,11 @@ import Roadmap from './components/Roadmap';
 import EmailCaptureForm from './components/EmailCaptureForm';
 import ParticleBackground from './components/ParticleBackground';
 import StatsBanner from './components/StatsBanner';
-import FeatureShowcase from './components/FeatureShowcase';
 
 const LandingPage = () => (
   <main className="relative">
     <Hero />
     <StatsBanner />
-    <FeatureShowcase />
     <EmailCaptureForm />
   </main>
 );
