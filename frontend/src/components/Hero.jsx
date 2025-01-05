@@ -177,13 +177,20 @@ const Hero = () => {
     }
   }, []);
 
-  const scrollToSignup = () => {
-    const signupSection = document.getElementById('signup-section');
-    if (signupSection) {
-      signupSection.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'center'
+  const scrollToWaitlist = () => {
+    const waitlistSection = document.getElementById('waitlist-section');
+    if (waitlistSection) {
+      // Add offset to account for fixed header
+      const headerOffset = 80;
+      const elementPosition = waitlistSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
       });
+    } else {
+      console.log('Waitlist section not found!'); // For debugging
     }
   };
 
@@ -280,6 +287,36 @@ const Hero = () => {
           <div className="h-px mt-0.5 bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
         </div>
       </div>
+
+      {/* CA Section - moved here */}
+      <div className="relative py-20 bg-navy-900/50">
+        <h2 className="text-4xl font-bold text-center text-white mb-8">
+          CA: <span className="font-mono text-blue-300">Hoic8iUSgmcAPL1fFFSAnUv26MqVn7cWcZecq5HSpump</span>
+        </h2>
+        
+        <div className="max-w-4xl mx-auto px-4 bg-navy-800/50 rounded-xl border border-blue-500/20 p-8">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <a 
+              href="https://pump.fun/coin/Hoic8iUSgmcAPL1fFFSAnUv26MqVn7cWcZecq5HSpump"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center hover:scale-105 transition-transform"
+            >
+              <img 
+                src="/pump-santa.webp" 
+                alt="PumpFun" 
+                className="w-10 h-10 opacity-100 hover:opacity-90 transition-opacity rounded-full"
+              />
+            </a>
+            <h3 className="text-xl text-blue-200">Token Launch on PumpFun</h3>
+          </div>
+          
+          <p className="text-center text-green-400 font-bold text-xl">
+            LIVE
+          </p>
+        </div>
+      </div>
+
       <TechnicalSection />
       <motion.div 
         className="absolute bottom-8 left-1/2 -translate-x-1/2"

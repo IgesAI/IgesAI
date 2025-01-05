@@ -15,7 +15,10 @@ const EmailCaptureForm = () => {
   };
 
   return (
-    <div className="relative py-20">
+    <div 
+      id="waitlist-section"
+      className="relative py-20 scroll-mt-20"
+    >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,240,255,0.05),transparent_50%)]" />
       
