@@ -8,6 +8,21 @@ import Technology from './components/Technology';
 import Roadmap from './components/Roadmap';
 import EmailCaptureForm from './components/EmailCaptureForm';
 import ParticleBackground from './components/ParticleBackground';
+import StatsBanner from './components/StatsBanner';
+import FeatureShowcase from './components/FeatureShowcase';
+import TrustSignals from './components/TrustSignals';
+import LiveDemo from './components/LiveDemo';
+
+const LandingPage = () => (
+  <main className="relative">
+    <Hero />
+    <StatsBanner />
+    <FeatureShowcase />
+    <LiveDemo />
+    <TrustSignals />
+    <EmailCaptureForm />
+  </main>
+);
 
 const App = () => {
   return (
@@ -15,12 +30,7 @@ const App = () => {
       <ParticleBackground />
       <Header />
       <Routes>
-        <Route path="/" element={
-          <main className="relative">
-            <Hero />
-            <EmailCaptureForm />
-          </main>
-        } />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/features" element={<Features />} />
         <Route path="/technology" element={<Technology />} />
         <Route path="/roadmap" element={<Roadmap />} />

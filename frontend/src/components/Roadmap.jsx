@@ -24,60 +24,56 @@ const Roadmap = () => {
 
   const phases = [
     {
-      phase: "Phase 1",
-      title: "AI Model Training & Solana Integration",
+      title: "Phase 1: Foundation",
+      description: "Initial platform development and core AI model training",
       status: "Completed",
       completion: 100,
-      timeline: "Q3-Q4 2024",
+      date: "Q4 2024",
       items: [
-        "Training AI models on historical transaction data ✓",
-        "Integration with Helius APIs ✓",
-        "Development of pattern recognition algorithms ✓",
-        "Initial blockchain data processing pipeline ✓"
-      ],
-      icon: Cpu
+        "Core AI model development",
+        "Basic blockchain data integration",
+        "Initial UI/UX design",
+        "Infrastructure setup"
+      ]
     },
     {
-      phase: "Phase 2",
-      title: "Visualization Layer Development",
-      status: "Completed",
-      completion: 100,
-      timeline: "Q4 2024",
-      items: [
-        "Implementation of Bubble Maps integration ✓",
-        "Custom heatmap development ✓",
-        "Interactive dashboard creation ✓",
-        "Real-time data visualization system ✓"
-      ],
-      icon: Code
-    },
-    {
-      phase: "Phase 3",
-      title: "Social Media Integration & Launch",
+      title: "Phase 2: Beta Development",
+      description: "Advanced features and testing phase",
       status: "In Progress",
-      completion: 85,
-      timeline: "Q1 2025",
+      completion: 60,
+      date: "Q1 2025",
       items: [
-        "Social media data correlation system ✓",
-        "Public beta testing ✓",
-        "Platform security audits - In Progress",
-        "Initial public release - Scheduled for Feb 2025"
-      ],
-      icon: Users
+        "Advanced pattern recognition",
+        "Social signal integration",
+        "Beta testing program",
+        "Security audits"
+      ]
     },
     {
-      phase: "Phase 4",
-      title: "Community & Governance",
-      status: "Starting Soon",
-      completion: 15,
-      timeline: "Q2 2025",
+      title: "Phase 3: Platform Launch",
+      description: "Public release and feature expansion",
+      status: "Planned",
+      completion: 0,
+      date: "Q2 2025",
       items: [
-        "Community feedback implementation - In Progress",
-        "Governance system development - Planning",
-        "Advanced feature rollout - Scheduled",
-        "Ecosystem partnerships - In Discussions"
-      ],
-      icon: Network
+        "Public platform launch",
+        "Advanced analytics dashboard",
+        "Real-time alert system",
+        "Community features"
+      ]
+    },
+    {
+      title: "Phase 4: Ecosystem Growth",
+      description: "Expanding capabilities and partnerships",
+      status: "Planned",
+      completion: 0,
+      date: "Q3 2025",
+      items: [
+        "Partnership integrations",
+        "Advanced API access",
+        "Mobile application",
+        "Enhanced ML models"
+      ]
     }
   ];
 
@@ -106,18 +102,18 @@ const Roadmap = () => {
 
         <div className="space-y-8">
           {phases.map((phase, index) => (
-            <ScrollReveal key={phase.phase} delay={index * 0.2}>
+            <ScrollReveal key={phase.title} delay={index * 0.2}>
               <div className="bg-navy-800/50 rounded-xl border border-blue-500/20 overflow-hidden">
                 {/* Phase Header */}
                 <div className="p-6 border-b border-blue-500/20">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center space-x-4">
                       <div className="p-3 bg-blue-500/20 rounded-lg">
-                        <phase.icon className="w-6 h-6 text-blue-400" />
+                        <Cpu className="w-6 h-6 text-blue-400" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-blue-100">{phase.phase}: {phase.title}</h3>
-                        <p className="text-blue-400">{phase.timeline}</p>
+                        <h3 className="text-xl font-bold text-blue-100">{phase.title}</h3>
+                        <p className="text-blue-400">{phase.date}</p>
                       </div>
                     </div>
                     <div className="text-right">
@@ -142,6 +138,7 @@ const Roadmap = () => {
 
                 {/* Phase Details */}
                 <div className="p-6 bg-navy-900/30">
+                  <p className="text-blue-100/80">{phase.description}</p>
                   <ul className="grid md:grid-cols-2 gap-4">
                     {phase.items.map((item, i) => (
                       <li key={i} className="flex items-center space-x-3">

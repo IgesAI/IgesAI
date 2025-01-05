@@ -24,6 +24,19 @@ const ScrollReveal = ({ children }) => {
 const Features = () => {
   const navigate = useNavigate();
 
+  const scrollToSignup = () => {
+    navigate('/');  // First navigate to home
+    setTimeout(() => {  // Then scroll after a brief delay to allow navigation
+      const signupSection = document.getElementById('signup-section');
+      if (signupSection) {
+        signupSection.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'center'
+        });
+      }
+    }, 100);
+  };
+
   const features = [
     {
       icon: Brain,
