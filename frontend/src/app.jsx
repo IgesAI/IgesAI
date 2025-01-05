@@ -10,7 +10,6 @@ import EmailCaptureForm from './components/EmailCaptureForm';
 import ParticleBackground from './components/ParticleBackground';
 import StatsBanner from './components/StatsBanner';
 import FeatureShowcase from './components/FeatureShowcase';
-import TrustSignals from './components/TrustSignals';
 import LiveDemo from './components/LiveDemo';
 
 const LandingPage = () => (
@@ -19,7 +18,6 @@ const LandingPage = () => (
     <StatsBanner />
     <FeatureShowcase />
     <LiveDemo />
-    <TrustSignals />
     <EmailCaptureForm />
   </main>
 );
