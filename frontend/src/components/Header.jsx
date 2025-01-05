@@ -189,16 +189,6 @@ const Header = () => {
                 layoutId="nav-hover-roadmap"
               />
             </Link>
-            
-            {/* Add Request Demo button */}
-            <motion.button
-              onClick={scrollToWaitlist}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="ml-4 px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-blue-500/25"
-            >
-              Request Demo
-            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
