@@ -1,0 +1,19 @@
+/* Reduce animations when tab is not visible */
+.reduce-animations * {
+  animation-duration: 0.001ms !important;
+  animation-delay: 0.001ms !important;
+  transition-duration: 0.001ms !important;
+}
+
+/* Optimize paint operations */
+.optimize-paint {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Reduce repaints for fixed elements */
+.reduce-repaints {
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+} 
